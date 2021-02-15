@@ -1,0 +1,22 @@
+.flex-page{
+    display: flex;
+    background-color: rgb(245, 165, 139);
+    text-align: center;
+    width: 80%;
+    flex-direction: row;
+    
+}
+
+.hook{
+    flex: 50%;
+    background-color: lightcoral;
+}
+
+.arrow{
+    flex: 50%;
+    background-color: darksalmon;
+}
+
+h2 {
+    color: rgb(114, 114, 212);
+}
