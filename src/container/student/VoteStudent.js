@@ -76,8 +76,7 @@ export default class VoteStudent extends Component {
                 </select>
             </div> */}
                 {
-                    !isSelected ? //if selected false
-                (students
+                   students
                     .sort((a,b)=>b.vote - a.vote )
                     .map(value => {
                             return (<div className="card">
@@ -88,20 +87,7 @@ export default class VoteStudent extends Component {
                                 <p>{value.vote}</p>
                             <button onClick={()=>this.handleUpVote(value.nim)}>Vote</button> </div>)
                         })
-                )
-                : //else
-                (students
-                .sort((a,b)=>b.vote - a.vote )
-                .map(value => {
-                        return (<div className="card">
-                            <p>{value.nim}</p>
-                            <p>{value.nama}</p>
-                            <p>{value.ipk}</p>
-                            <p>{value.kota}</p>
-                            <p>{value.vote}</p>
-                        <button onClick={()=>this.handleUpVote(value.nim)}>Vote</button> </div>) //pakai fungsi kosong agar fungsi nya tidak looping
-                    })
-                )
+               
             }
             </>
         )
