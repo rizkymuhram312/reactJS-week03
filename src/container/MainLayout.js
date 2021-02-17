@@ -11,6 +11,11 @@ import Counter from '../components/Counter';
 import List from '../components/List';
 import Todo from '../components/Todo';
 import Error404 from '../components/Error404'
+import MovieList from './movies/Movies'
+import RatingList from './movies/RatingList';
+import studentList from './student/studentList';
+import ListStudent from './student/ListStudent';
+import VoteStudent from './student/VoteStudent'
 
 
 const MainLayout = () =>{
@@ -24,6 +29,11 @@ const MainLayout = () =>{
                     <Route path="/counter" component={Counter} exact />
                     <Route path="/list" component={List} exact />
                     <Route path="/todo" component={Todo} exact />
+                    <Route path="/movies" component={MovieList} exact />
+                    <Route path="/rating" component={RatingList} exact />
+                    <Route path="/student" component={studentList} exact />
+                    <Route path="/studentList" exact ><ListStudent /> </Route>
+                    <Route path="/voteStudent" exact ><VoteStudent /> </Route>
                     <Route component={Error404} />
                 </Switch>
 

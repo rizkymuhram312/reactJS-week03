@@ -96,6 +96,7 @@
     margin: 0;
     background-color: #bdbdff;
     display: flex;
+    flex-direction: row;
 }
 
 .footer{
@@ -106,4 +107,9 @@
 .footer h2{
     font-size: 14px;
     color: #d3d3d3;
+}
+
+.nav-side-link{
+    margin: .5em 1em;
+    text-decoration-line:none ;
 }

@@ -22,11 +22,40 @@ const SidebarMenu = [
     },
     {
         id: 4,
-        path: '/form',
+        path: '/movies',
         exact: true,
-        name: 'Form Input',
+        name: 'Movies',
+        component: null
+    },
+    {
+        id: 5,
+        path: '/rating',
+        exact: true,
+        name: 'Rating Movies',
+        component: null
+    },
+    {
+        id: 6,
+        path: '/student',
+        exact: true,
+        name: 'List Student',
+        component: null
+    },
+    {
+        id: 7,
+        path: '/studentList',
+        exact: true,
+        name: 'Student List',
+        component: null
+    },
+    {
+        id: 8,
+        path: '/voteStudent',
+        exact: true,
+        name: 'Student Vote',
         component: null
     }
+
 ];
 
 export default SidebarMenu;
