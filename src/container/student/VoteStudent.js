@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {studentData} from './studentData'
 import '../movies/Movie.css'
+import Student from './student'
+import { getSkillDesc } from './apiSkill'
 
 export default class VoteStudent extends Component {
     state = {
@@ -65,30 +67,54 @@ export default class VoteStudent extends Component {
         const {students,search,select,isSelected} = this.state;
         return (
             <>
-            {/* <div>
-                <input placeholder = 'Search Student ...' value={search} onChange={this.onHandleChange}/> 
-                <select value={select} onChange={this.onHandleSelect}>
-                    <option value="">Filter By</option>
-                    <option value="nim">NIM</option>
-                    <option value="nama">Nama</option>
-                    <option value="ipk">IPK</option>
-                    <option value="kota">Kota</option>
-                </select>
-            </div> */}
+            
+            <div className="student">
+                
                 {
-                   students
+                    !isSelected ? //if selected false
+                (students
                     .sort((a,b)=>b.vote - a.vote )
                     .map(value => {
-                            return (<div className="card">
-                                <p>{value.nim}</p>
-                                <p>{value.nama}</p>
-                                <p>{value.ipk}</p>
-                                <p>{value.kota}</p>
-                                <p>{value.vote}</p>
-                            <button onClick={()=>this.handleUpVote(value.nim)}>Vote</button> </div>)
+                        
+                        let skills = getSkillDesc(value.skill);
+                            return (<Student
+                   
+                                nim={value.nim}
+                                nama={value.nama}
+                                ipk={value.ipk}
+                                kota={value.kota}
+                                vote={value.vote}
+                                poster = {value.poster}
+                                skill={skills.join(',')}
+                                onVote = {this.handleUpVote}
+        
+                              
+                                />
+                                
+                                )
                         })
-               
+                )
+                : //else
+                (students
+                .sort((a,b)=>b.vote - a.vote )
+                .map(value => {
+                    let skills = getSkillDesc(value.skill);
+                        return (<Student
+                   
+                            nim={value.nim}
+                            nama={value.nama}
+                            ipk={value.ipk}
+                            kota={value.kota}
+                            vote={value.vote}
+                            poster = {value.poster}
+                            skill={skills.join(',')}
+    
+                          
+                            />) //pakai fungsi kosong agar fungsi nya tidak looping
+                    })
+                )
             }
+            </div>
             </>
         )
     }

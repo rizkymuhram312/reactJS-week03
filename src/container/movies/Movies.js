@@ -2,11 +2,12 @@ import React, {Component} from 'react'
 import Movie from './Movie'
 import {movieData} from './MovieData'
 import './Movies.css'
-import getGenreDesc from './apiGenre'
+import {getGenreDesc} from './apiGenre'
 
 export default class Movies extends Component {
     render() {
         const gallery = movieData.map((movie) => {
+            let genres = getGenreDesc(movie.genre_ids);
             return (
                 <Movie
                     title={movie.title}
@@ -15,7 +16,7 @@ export default class Movies extends Component {
                     rating={movie.vote_average}
                     hd={movie.video}
                     adult={movie.adult}
-                    genre_ids={movie.genre_ids}
+                    genre={genres.join(',')}
                 />
             );
         });

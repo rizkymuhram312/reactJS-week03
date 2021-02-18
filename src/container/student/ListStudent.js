@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {studentData} from './studentData'
+import Student from './student'
 import '../movies/Movie.css'
+import { getSkillDesc } from './apiSkill'
 
 export default class ListStudent extends Component {
     state = {
@@ -65,18 +67,29 @@ export default class ListStudent extends Component {
                     <option value="kota">Kota</option>
                 </select>
             </div>
+            <div className="student">
                 {
                     !isSelected ? //if selected false
                 (students
                 .filter( f => f.nama.toLowerCase().includes(search.toLowerCase())) //karan this.state sudah dideklarasikan
+                .sort((a,b)=>b.vote - a.vote )
                 .map(value => {
+                    let skills = getSkillDesc(value.skill);
                     return (
-                    <div className="card">
-                        <p>{value.nim}</p>
-                        <p>{value.nama}</p>
-                        <p>{value.ipk}</p>
-                        <p>{value.kota}</p>
-                        <button onClick={this.handleUpVote}>Vote</button> </div>)
+                        <Student
+                   
+                        nim={value.nim}
+                        nama={value.nama}
+                        ipk={value.ipk}
+                        kota={value.kota}
+                        vote={value.vote}
+                        poster = {value.poster}
+                        skill={skills.join(',')}
+                        onVote = {this.handleUpVote}
+
+                      
+                        />
+                        )
                 })
                 )
                 : //else
@@ -98,14 +111,24 @@ export default class ListStudent extends Component {
                         return (''+a.kota).localeCompare(b.kota);
                     }
                 }).map(value => {
-                        return (<div className="card">
-                            <p>{value.nim}</p>
-                            <p>{value.nama}</p>
-                            <p>{value.ipk}</p>
-                            <p>{value.kota}</p> </div>)
+                    let skills = getSkillDesc(value.skill);
+                        return ( <Student
+                   
+                            nim={value.nim}
+                            nama={value.nama}
+                            ipk={value.ipk}
+                            kota={value.kota}
+                            vote={value.vote}
+                            poster = {value.poster}
+                            skill={skills.join(',')}
+                            onVote = {this.handleUpVote}
+    
+                          
+                            />)
                     })
                 )
             }
+            </div>
             </>
         )
     }

@@ -24,7 +24,7 @@ const Movie = (props) => {
                     <span style={{ color: '#fff68f', opacity: 0.5}} >
                         <Icon size={64} icon={play} />
                     </span>
-                    {props.title} ({props.date.substr(0,4)}) ({props.adult===false?'G':'PG'}) ({props.genre_ids.getGenreDesc})
+                    {props.title} ({props.date.substr(0,4)}) ({props.adult===false?'G':'PG'}) ({props.genre})
                 </div>
             </Link>
         </div>
