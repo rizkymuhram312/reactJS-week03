@@ -8,7 +8,7 @@ import './Movie.css'
 const Movie = (props) => {
     return (
         <div className="card" style={{ backgroundImage: `url(./images/${props.poster})` }}>
-            <Link to="/movies">
+            <Link to={"/movies/"+props.id}>
                 <div>
                     <div>
                         <span className="quality">{props.rating=== 0 ? 'Trailer' : (props.hd===false?'CAM': 'HD')}</span>
@@ -25,6 +25,7 @@ const Movie = (props) => {
                         <Icon size={64} icon={play} />
                     </span>
                     {props.title} ({props.date.substr(0,4)}) ({props.adult===false?'G':'PG'}) ({props.genre})
+
                 </div>
             </Link>
         </div>

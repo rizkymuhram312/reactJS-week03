@@ -15,7 +15,10 @@ import MovieList from './movies/Movies'
 import RatingList from './movies/RatingList';
 import studentList from './student/studentList';
 import ListStudent from './student/ListStudent';
-import VoteStudent from './student/VoteStudent'
+import VoteStudent from './student/VoteStudent';
+import tail from '../tailwindTest/tail'
+import { MovieDescription } from './movies/apiDesc';
+import province from '../crud/province';
 
 
 const MainLayout = () =>{
@@ -34,6 +37,9 @@ const MainLayout = () =>{
                     <Route path="/student" component={studentList} exact />
                     <Route path="/studentList" exact ><ListStudent /> </Route>
                     <Route path="/voteStudent" exact ><VoteStudent /> </Route>
+                    <Route path="/tail" component={tail} exact />
+                    <Route path="/movies/:id" component={MovieDescription} exact />
+                    <Route path="/province" component={province} exact />
                     <Route component={Error404} />
                 </Switch>
 

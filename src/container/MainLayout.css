@@ -1,8 +1,10 @@
+
 .container {
     background-color: whitesmoke;
     display: grid;
     grid-template-areas: "header header" "side content" "footer footer";
-    height: 100vh;
+    min-height: 41em;
+    max-width: 300em;
     grid-template-columns: 2fr 6fr;
     grid-template-rows: auto 1fr auto;
     grid-gap: 1px;
@@ -22,7 +24,7 @@
 }
 
 .nav-top li.logo {
-    margin-right: 150vh;
+    margin-right: 55em;
 }
 
 .nav-top ul {

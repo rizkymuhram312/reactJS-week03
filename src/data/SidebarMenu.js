@@ -54,6 +54,20 @@ const SidebarMenu = [
         exact: true,
         name: 'Student Vote',
         component: null
+    },
+    {
+        id: 9,
+        path: '/tail',
+        exact: true,
+        name: 'Tailwind',
+        component: null
+    },
+    {
+        id: 10,
+        path: '/province',
+        exact: true,
+        name: 'List Province',
+        component: null
     }
 
 ];

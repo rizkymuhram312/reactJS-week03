@@ -10,6 +10,7 @@ export default class Movies extends Component {
             let genres = getGenreDesc(movie.genre_ids);
             return (
                 <Movie
+                    id = {movie.id}
                     title={movie.title}
                     poster={movie.poster_path}
                     date={movie.release_date}
